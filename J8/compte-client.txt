@@ -1,0 +1,47 @@
+Un client, c'est un user.
+
+Pour l'instant, nous sommes des admins, sur le site.
+
+Les clients no'ont pas les mêmes droits quer nous : ils ne peuvent pas modifier ou supprimer un produit, ils peuvent juste
+en commander, voir leur historique de commandes, et gérer leurs informations.
+
+Dans la table users, on rajouter une colonne qu'on va appeler role NULL.
+
+Ce rôle peut être 0 ou 1.
+
+0 ou NULL ou autre : on est admin 
+
+1 : on est client
+
+On doit créer un deuxième formulaire d'inscription :
+    Une page inscription-client.php 
+    Ce formulaire fonctionne de la même manière que le formulaire de la page inscription.php, sauf qu'il INSERT la valeur 
+    1 dans la colonne role de la table users.
+
+Il n'y a pas de besoin à modifier la page connexion, dans le sens où :
+    Un email ne peut pas avoir deux comptes, et cette règle s'applique aussi aux défférents rôle :
+        Un email déjà inscrit (comme admin) ne peut pas se réinscrire comme client.
+À part la partie redirection :
+    Une fois qu'on a validé le mot de passe :
+        On regarde quel est le rôle du user.
+        Si c'est un admin, on le redirige vers admin.php 
+        Si c'est un client, on le redirige vers admin-client.php 
+
+Admin-client.php :
+
+    Contient :
+        Un bouton de déconnexion
+
+        L'historique des commandes : dans admin.php, on faisait un SELECT sur l'ensemble des produits
+        Ici, on fait un SELECT sur l'ensemble des commandes_total WHERE id_client = $idClient
+
+        (Créer un card dans lequel on affiche le numéro de commande, le nombre de produit commandés, la date, le prix total)
+
+        Un formulaire dans lequel le client peut modifier ses informations :
+            UPDATE son adresse
+            UPDATE son mot de passe sans oublier de password_hash() et passwword_verify()
+
+Panier : 
+    Avant le passage en caisse, si la personne n'est pas enregistrée comme client, on lui propose de créer un compte.
+    Si l'utilisateur accepte (clique sur 'créer un compte avant'), on le redirige vers inscription_client.php, et une fois 
+    qu'il s'est inscrit, on devra automatiquement le rediriger vers le formulaire de commande.

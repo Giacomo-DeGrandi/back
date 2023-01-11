@@ -1,0 +1,9 @@
+- Présentation de phpmyadmin
+- Création des tables et des colonnes
+- Présentation des Exceptions
+- Connexion à la base de données avec l'objet PDO 
+- Présentation de SQL
+- Insérer un produit dans notre base de données 
+- Récupérer et afficher des produits depuis une base de données
+- Liens GET dans <a></a>
+- Page produit dynamique

@@ -1,0 +1,35 @@
+Un catalogue, c'est un endroit dans lequel on liste nos différents produits.
+
+Une page catalogue, on va la réaliser avec une requête SELECT comme on a fait pour notre page Admin.
+
+Dans notre base de données, on pourrait créer une table catégories, ajouter une colonne categorie à notre table produits, et 
+sur notre catalogue, proposer aux clients de sélectionner les produit en fonction des catégories.
+
+    SELECT * FROM produits WHERE categorie = $idCategorie
+
+Une barre de recherche en haut de la page.
+    Un formulaire, avec un input de type text, et un input de type submit (le bouton rechercher).
+
+    LIKE -> sélectionner des éléments en fonction de leur caractères
+
+    SELECT * FROM produits WHERE titre = $recherche
+
+    SELECT * FROM produits WHERE titre LIKE '%$recherche%'
+
+        Les % :
+            Si on en met avant et après, on va sélectionner tous les résultats qui contiennent notre recherche
+
+            Si on en met que 1 avant, on va sélectionner les résultats qui commencent par notre recherche.
+
+            Si on met que 1 après, on va sélectionner les résultats qui se terminent par notre recherche.
+
+
+Comment afficher nos produits ?
+
+    On va créer un CardCatalogue.
+
+        Pour l'instant, on avait créé une fonction card qui affichait une affichette à l'utilisateur, avec les informations
+        du produit, et des boutons modifier et supprimer.
+
+        La CardCatalogue va contenir les informations du produit, mais au lieu d'avoir des boutons voir et supprimer, elle
+        va contenir un lien vers la page produit.php, et dans ce lien, une requête GET avec id=$idProduit.

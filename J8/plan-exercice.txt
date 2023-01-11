@@ -1,0 +1,64 @@
+- Catalogue
+    Page catalogue.php
+        SELECT * FROM produits
+        Barre de recherche
+            ajouter LIKE '$search%' à la requête
+    components/cardCatalogue.php
+        Card contenant un bouton voir
+            requete GET id=$idProduit vers la page produit.php 
+
+- Page Produit           
+    Produit.php
+        Si aucun produit dans GET : rediriger vers catalogue.php
+        Récupérer les infos du produit passé en requete GET
+        Créer une page sur le même principe qu'un card
+
+- Panier 
+    Dans la base de données
+        Table panier avec colonnes id, session, produit, quantité
+        Prix produit * 100
+    Dans init.php 
+        if (!isset($_SESSION['id']))
+            $_SESSION['id'] = id_session();
+    Dans la page produit :
+        Formulaire POST avec requete GET en action
+            Select pour la quantité
+                Si déjà dans un panier, update
+                Si pas dans un panier, insert
+    components/cardPanier
+        Option modifier la quantité avec un form Select
+        Option supprimer
+    Page panier.php
+        Un card par panier
+        Une colonne total avec l'ensemble des articles du panier (qu'on recupere avec la colonne session)
+        Bouton Commander qui amène sur le formulaire de commande
+
+- Passage de la commande
+    Base de données
+        Table commandes_total avec email du client, nombre de produits commandés, prix total
+        Table commandes_detail avec un rang par produit commandé, qantité par produit, id de commande_total
+        Table clients avec email, adresse, nom NULL
+    Page Formulaire de commande
+        Formulaire avec email, adresse et nom facultatif
+        Insertion des données dans la base de données
+        Redirection vers validation.php 
+    Page de validation
+        Message de validation avec :
+            Id de la commande
+            Adresse de livraison
+            Email
+
+- Compte client :
+    Création d'une page inscription-client.php 
+    Dans la bdd : table user : ajouter colonne rôle
+        Si le rôle est 0 : administrateur
+        Si le rôle est 1 : client
+    inscription-client.php crée un user avec un rôle 1
+    Page admin-client.php
+        Historique des commandes 
+        Modification du mot de passe
+    Page connexion :
+        Si rôle === 1 : redirige vers admin-client.php
+        Sinon : redirige vers admin.php
+    Page panier : si l'utilisateur n'est pas connecté, proposition de créer un compte 
+        Formulaire : redirection vers passage en caisse après enregistrement

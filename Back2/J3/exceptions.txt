@@ -1,0 +1,5 @@
+Une exception, c'est quand on anticipe qu'une erreur puisse arriver.
+
+Avec le mot-clé try, on dit à l'ordinateur d'essayer de faire une action.
+
+Si une erreur arrive, avec le mot-clé catch, on détermine la procédure à suivre.

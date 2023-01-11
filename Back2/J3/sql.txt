@@ -1,0 +1,39 @@
+SQL c'est un language de requête qui nous sert à communiquer avec des bases de données relationnelles
+(ex : MySQL)
+
+SELECT * FROM clients
+
+SELECT : sélectionner
+
+* : tout
+
+FROM : table cible
+
+Cette requête sélectionne toutes les entrées de la table client.
+
+
+
+UPDATE : mettre à jour
+
+UPDATE (table :) clients WHERE (condition :) id = 1 SET (colonne à mettre à jour :) mdp = (valeur à insérer :) mot_de_passe_du_client
+
+
+
+
+INSERT : insérer
+
+INSERT INTO (table dans laquelle insérer :) clients (id, email, mdp) VALUES (valeurs à insérer :) ($id, $email, $mdp)
+
+
+
+DELETE : supprimer (un rang)
+
+DELETE FROM (table dans laquelle supprimer une valeur :) clients WHERE (condition :) id = 1
+
+
+
+DROP : supprimer une table ou base de données
+
+DROP DATABASE formation
+
+DROP TABLE clients

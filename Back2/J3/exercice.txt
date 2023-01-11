@@ -1,0 +1,38 @@
+Créer champ photo en varchar (max 255) dans la base de données
+    Le lien qu'on insérerait dans src=""
+
+Dans chaque page vous devrez require votre fichier init.php 
+
+- But de l'exercice
+
+- 1ère partie : 
+
+    - Créer un formulaire qui inscrit le produit dans la base de données
+        Hier, notre formulaire créait un card
+        Ajourd'hui il INSERT dans la base de données
+
+        - Pour la photo (sauf ceux qui auront fini et qui veulent s'avancer) :
+            1 photo réutilisable sur tous vos produits
+            (t-shirt, moto ...)
+
+            Insérer le lien de cette photo comme  'photo' dans la base de données
+
+            Pas besoin de champ photo dans le formulaire
+
+            Vous devrez insérer le liens de votre photo témoin automatiuement
+
+- 2ème partie
+
+    Une fois que vous inscrit quatre ou cinq produit, dans une page de votre choix, vous allez SELECT tous les produits
+    de votre base de données
+    ET 
+    Les afficher sous forme de card
+
+
+Vos aides (en plus du formateur) :
+
+- Google
+- sql.sh 
+- php.net 
+- stackoverflow (pour ceux qui parlent anglais)
+- openclassrooms (stackoverflow en français)

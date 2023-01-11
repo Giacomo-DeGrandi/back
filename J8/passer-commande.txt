@@ -1,0 +1,43 @@
+Le passage de la commande se fait via le formulaire de commande sur lequel on arrive après avoir cliqué sur 
+'commander' dans panier.php 
+
+Dans la base de données, on doit avoir trois tables :
+
+TABLE clients
+    Id 
+    Email
+    Nombre de commandes
+    Nom NULL
+    Date d'inscription
+
+TABLE commandes_total
+    Id
+    Id du client
+    Nombre de produits commandés
+    Prix total
+    Date de commande
+
+TABLE commandes_detail
+    Id
+    Id du produit
+    Id de commande_total
+    Quantité
+
+Le formulaire contient :
+
+    Pour l'instant, juste les informations client :
+        Email
+        Adresse
+        Nom Facultatif
+
+Une fois le formulaire de commande envoyé :
+    On insère  notre Client dans la table clients
+    On insère notre commande générale dans la table commandes_total
+    On insère nos produits dans la table commandes_detail
+    On redirige l'utilisateur vers une page de validation
+
+Page de validation :
+    On confirme la commande à l'utilisateur et on lui affiche un récapitulatif avec :
+        Id de commande 
+        Email 
+        Adresse de livraison

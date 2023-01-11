@@ -1,0 +1,42 @@
+Une page produit fonctionne sur le même principe que les Card que vous avez déjà créé.
+
+Quand on crée un card, on utilise les information d'un seul produit que l'on récupère, et on crée du contenu.
+
+La page produit fonctionne de la même façon :
+
+    C'est un template que l'on va remplir.
+    (Une façon de créer du contenu, qui aura la même forme, mais dont les valeurs peivent changer)
+     (Quand uon faisait un card : les cards ont la même disposition, mais leurs valeurs changent)
+
+La première chose à faire ?
+
+    Vérifier si $_GET['id'] is set, sinon on renvoie l'utilisateur vers la page catalogue.
+
+    Si $_GET['id'] est bien set, on av vérifier si le produit est bien dans la base de données.
+
+    Si c'est bon on peut afficher notre contenu.
+
+
+L'affichage de contenu :
+
+On a précédemment vu que PHP s'imbrique dans le HTML.
+
+On peut créer une page HTML, dans laquelle on va passer des valeurs connues par PHP, pour créer notre page dynamiquement.
+
+HTML :
+<h2>Titre du produit</h2>
+
+PHP (une fois qu'on a récupéré nos informations) 
+$titreProduit = $resultat['titre'];
+$prixProduit = $resultat['prix'] / 100;
+    (/ 100 car on stocke le prix * 100 dans la base de données)
+$description = $resultats['description'];
+
+
+
+
+<div>
+<h2><?php echo $titreProduit ?></h2>
+<h3><?php echo $prixProduit ?></h3>
+<p><?php echo $description ?></p>
+</div>

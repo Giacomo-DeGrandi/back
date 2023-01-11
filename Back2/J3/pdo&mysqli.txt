@@ -1,0 +1,40 @@
+PDO et mysqli sont des interfaces d'abstraction.
+
+Une interface d'abstraction : du code, qui est écrit pour nous, qu'on peut réutiliser.
+
+PDO et mysqli sont des manières de d'intéragir avec des bases de données.
+
+PDO est plus sécurisé.
+
+Il ne faut pas, il ne faut pas, utiliser mysqli.
+
+Pourquoi PDO est plus sécurisé ?
+
+    Parce il nous protège, en respectant ce qu'on nous dit de faire, des injections SQL.
+
+    Une injection SQL ?
+        Quelqu'un arrive à rentrer du code SQL dans notre base de données.
+
+            DROP DATABASE : on a plus rien !
+
+            Si un hacker arrive :
+
+                Il peut tout copier !
+
+                Il peut mettre du code !
+
+                Il peut nous mettre des virus !
+
+                Il peut nous prendre tous nos sous.
+
+            Un outil qui s'appelle SQLmap.
+
+                C'est un logiciel, open-source (le code est libre de droits et PUBLIC), qui arrive à trouver l'ensemble des injections
+                SQL, même théoriques, qu'on peut exploiter sur un site.
+
+                Ce logiciel par les hackers ou pseudo-hackers contre vous.
+
+                Vous devez l'utilioser pour tester votre sécurité.
+
+                (Ne l'utilisez jamais, jamais, même sans mauvaises intentions, sur le site de quelu'un qui ne vous signé une décharge vous autorisant à la faire)
+                Sinon : prison :()

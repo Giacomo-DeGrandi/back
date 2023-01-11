@@ -1,0 +1,57 @@
+Un panier, c'est un moyen de garder en mémoire les produits que le client veut acheter sans le rediriger directement à la
+caisse.
+
+Comment créer un panier ?
+
+    Dans la base de données.
+
+        On va créer une table panier.
+
+            Elle doit contenir : l'id du produit, la quantité, l'id de session.
+
+            Si on veut avoir moins de calcul à faire plus tard, on peut ajouter le prix.
+                On a pas vraiment besoin, car le prix des produits est déjà inscrit dans leur table.
+
+        Dans la base de données, les prix sont stockés avec un prix égal à * 100 de leur prix principal.
+
+        On utilise toujours des ints, c'est pour calculer les centimes de façon sécurisée qu'on stocke les prix de cette manière.
+
+Comment récupérer les informations d'un panier ?
+
+    Avec une requête SELECT, on peut sélectionner l'ensemble des produits de la table panier WHERE id_session = $_SESSION['id']
+
+
+Comment on ajouter des produits au panier ?
+
+    Dans la page produit, on va créer un formulaire avec le méthode POST, qui INSERT dans la table panier.
+
+    On peut faire un form avec la méthode POST et faire ceci :
+        
+        <form method="POST" action="produit.php?id=$idProduit">
+
+    Le traitement de ce formulaire ce fait avec un requête INSERT :
+        On insère les informations dans la base de données.
+
+        Petite spécificité :
+            Si la personne a déjà le produit dans son panier, au lieu d'INSERT :
+                on UPDATE la quantité
+            Comment savoir si la personne a déjà le produit dans son panier :
+                on SELECT * FROM produits WHERE id_session = $_SESSION['id']
+                on récupère le résultat
+                on rowCount
+            sinon
+                on SELECT COUNT(*) FROM produits WHERE id_session = $_SESSION['id']
+
+Créer un cardPanier :
+    C'est un card qui contient les informations d'un produit, avec un 
+    Bouton supprimer
+        Requête DELETE que vous aurez déjà fait (si vous en êtes à ce point)
+    Bouton voir : vous l'aurez déjà créé dans la page catalogue
+    Bouton modifier la quantité :
+        C'est un SELECT avec des quantité de 1 à x (que vous choisirez), et si l'utilisateur envoir le formulaire, on remplace
+        la quantité (dans la base de données) par la nouvelle quantité envoyée.
+
+Un formulaire de passage en caisse :
+    Rcapilutatif des produits, leur prix, et    
+    Un bouton de passage en caisse 
+        Il envoie l'utilisateur vers un formulaire de paiement

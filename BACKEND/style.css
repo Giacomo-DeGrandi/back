@@ -1,0 +1,38 @@
+/* This is an empty CSS stylesheet with classes and IDs */
+
+body {
+    background-color: midnightblue!important;
+}
+/* Classes */
+.container {
+    background-color: gainsboro !important;
+}
+
+.row {
+
+}
+
+.form-group {
+
+}
+
+.form-control {
+
+}
+
+.btn {
+
+}
+
+/* IDs */
+#titleInput {
+
+}
+
+#priceInput {
+
+}
+
+#descriptionInput {
+
+}
