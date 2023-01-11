@@ -7,7 +7,7 @@ use PDO;
 
 Abstract Class Database{
 
-    function connect(): PDO
+    public function connect(): PDO
     {
 
         /*
@@ -26,7 +26,8 @@ Abstract Class Database{
         return $conn;
     }
 
-    function selectQuery($sql, $p = null){
+    /*
+    public function selectQuery($sql, $p = null){
         if ($p === null) {
             $r = $this->connect()->query($sql);
         } else {
@@ -35,5 +36,6 @@ Abstract Class Database{
         }
         return $r;
     }
+    */
 
 }

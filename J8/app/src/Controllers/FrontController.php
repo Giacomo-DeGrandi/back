@@ -14,9 +14,20 @@ Class FrontController
         // $content variable is used in Layout.php as Header and Footer
         require_once 'assets/Views/' . $title . '.php';
 
+        $errors = self::inj($html);
         // keep the Layout under the others
+
         require_once 'Templates/Layout.php';
 
     }
+
+    public static function inj($collectErrors)
+    {
+        if(isset($collectErrors)){
+            return $collectErrors;
+        }
+        return false;
+    }
+
 
 }

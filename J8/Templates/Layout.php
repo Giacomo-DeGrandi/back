@@ -37,6 +37,10 @@
 
 </header>
 
+<span class="h3 p-4 text-danger">
+    <?php if(isset($errors)){ echo $errors; } ?>
+</span>
+
 <main>
 
     <?= $content  ?>

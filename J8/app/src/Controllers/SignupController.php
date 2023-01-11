@@ -3,7 +3,9 @@
 namespace App\Controllers\SignupController;
 
 require_once 'FrontController.php';
+require_once 'ErrorController.php';
 
+use App\Controllers\ErrorController\ErrorController;
 use App\Controllers\FrontController\FrontController;
 
 
@@ -21,7 +23,7 @@ Class SignupController extends FrontController
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
             $subscribe = $_POST['subscribe'] ?? null;
-            $errors = array();
+            $errors = new ErrorController();
 
             // validate name
             if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
@@ -51,8 +53,7 @@ Class SignupController extends FrontController
                 // process form
                 // ...
             } else {
-                // display errors
-                print_r($errors);
+                ErrorController::renderError($errors);
             }
         }
 

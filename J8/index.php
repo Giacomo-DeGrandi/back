@@ -10,6 +10,7 @@ require_once 'app/src/Controllers/SignupController.php';
 require_once 'app/src/Controllers/SignupClientController.php';
 require_once 'app/src/Controllers/SearchController.php';
 require_once 'app/src/Controllers/CatalogueController.php';
+require_once 'app/src/Controllers/HomeController.php';
 
 
 use App\Controllers\HomeController\HomeController;

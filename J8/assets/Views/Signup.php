@@ -6,7 +6,7 @@ ob_start();
 <div class="container-fluid">
     <div class="row flex-wrap">
         <div  class="p-4 me-5">
-            <form class="p-4" id="formSignup" action="" method="GET">
+            <form class="p-4" id="formSignup" action="" method="POST">
                 <p class="p-2 h1 mb-4 darkgray-font">Subscribe</p>
 
                 <div class="row mb-2">
@@ -14,8 +14,8 @@ ob_start();
 
                     <!-- Submit button -->
                     <div class="p-4">
-                        <input type="submit" class="hidden" name="controller" value="Signup">
-                        <input type="submit" class="hidden" name="action" value="Signup">
+                        <input type="hidden" name="controller" value="Signup">
+                        <input type="hidden" name="action" value="SignupUser">
                     </div>
 
                     <!-- Firstname input -->
